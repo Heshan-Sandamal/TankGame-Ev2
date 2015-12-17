@@ -19,6 +19,10 @@ namespace XNAGame
         GraphicsDeviceManager graphics;
         GraphicsDevice device;
         SpriteBatch spriteBatch;
+        int screenWidth;
+        int screenHeight;
+
+        Texture2D backgroundTexture;
 
         public Game1()
         {
@@ -53,6 +57,11 @@ namespace XNAGame
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             device = graphics.GraphicsDevice;
+
+            backgroundTexture=Content.Load<Texture2D>("tankbackground");
+
+            screenWidth = device.PresentationParameters.BackBufferWidth;
+            screenHeight= device.PresentationParameters.BackBufferHeight;
 
             // TODO: use this.Content to load your game content here
         }
@@ -92,7 +101,17 @@ namespace XNAGame
 
             // TODO: Add your drawing code here
 
+            spriteBatch.Begin();
+            DrawScenery();
+            spriteBatch.End();
+
             base.Draw(gameTime);
+        }
+
+        private void DrawScenery()
+        {
+            Rectangle screenRectangle = new Rectangle(0, 0, screenWidth, screenHeight);
+            spriteBatch.Draw(backgroundTexture, screenRectangle, Color.White);
         }
     }
 }

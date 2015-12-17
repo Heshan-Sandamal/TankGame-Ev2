@@ -10,3 +10,4 @@ C:\Users\Heshan Sandamal\Documents\Visual Studio 2013\Projects\workshopBy99X\XNA
 C:\Users\Heshan Sandamal\Documents\Visual Studio 2013\Projects\workshopBy99X\XNAGame\XNAGame\XNAGame\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Heshan Sandamal\Documents\Visual Studio 2013\Projects\workshopBy99X\XNAGame\XNAGame\XNAGame\obj\x86\Debug\XNAGame.exe
 C:\Users\Heshan Sandamal\Documents\Visual Studio 2013\Projects\workshopBy99X\XNAGame\XNAGame\XNAGame\obj\x86\Debug\XNAGame.pdb
+C:\Users\Heshan Sandamal\Documents\Visual Studio 2013\Projects\workshopBy99X\XNAGame\XNAGame\XNAGame\bin\x86\Debug\Content\tankbackground.xnb
