@@ -17,6 +17,7 @@ namespace XNAGame
     public class Game1 : Microsoft.Xna.Framework.Game
     {
         GraphicsDeviceManager graphics;
+        GraphicsDevice device;
         SpriteBatch spriteBatch;
 
         public Game1()
@@ -36,6 +37,11 @@ namespace XNAGame
             // TODO: Add your initialization logic here
 
             base.Initialize();
+            graphics.PreferredBackBufferWidth = 500;
+            graphics.PreferredBackBufferHeight = 500;
+            graphics.IsFullScreen = false;
+            graphics.ApplyChanges();
+            Window.Title = "Tank Game- Eliminators";
         }
 
         /// <summary>
@@ -46,6 +52,7 @@ namespace XNAGame
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            device = graphics.GraphicsDevice;
 
             // TODO: use this.Content to load your game content here
         }
