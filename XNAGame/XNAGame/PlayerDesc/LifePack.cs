@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace XNAGame.PlayerDesc
 {
-    class LifePack : Coordinate
+    class LifePack : GameObject
     {
-        public int LocationX { get; set; }
-        public int LocationY { get; set; }
+        
         public int LeftTime { get; set; }
 
     }

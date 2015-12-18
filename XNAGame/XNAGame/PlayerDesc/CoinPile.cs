@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace XNAGame.PlayerDesc
 {
-    class CoinPile :Coordinate
+    class CoinPile :GameObject
     {
 
         public int LocationX { get; set; }

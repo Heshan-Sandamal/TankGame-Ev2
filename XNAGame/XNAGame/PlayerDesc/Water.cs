@@ -5,10 +5,9 @@ using System.Text;
 
 namespace XNAGame.PlayerDesc
 {
-    class Water : Coordinate
+    class Water : GameObject
     {
-        public int LocationX { get; set; }
-        public int LocationY { get; set; }
+        
         
     }
 }

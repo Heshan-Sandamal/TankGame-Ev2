@@ -7,10 +7,9 @@ using XNAGame;
 
 namespace XNAGame.PlayerDesc
 {
-    class Player:Coordinate
+    class Player:GameObject
     {
-        public int LocationX { get; set; }
-        public int LocationY { get; set; }
+        
         public Enums.Directions Direction { get; set; }
         public int Shot { get; set; }
         public int health { get; set; }
