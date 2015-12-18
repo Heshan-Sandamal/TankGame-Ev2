@@ -33,7 +33,7 @@ namespace XNAGame
                 self.LocationY = int.Parse(Locations[1]);
                 //player initial direction.
                 //--TODO-- directions must be mapped into enums with the correcty directions.
-                self.Direction = (Enums.Directions)Enum.Parse(typeof(XNAGame.PlayerDesc.Enums.Directions), splitted[3]);
+                self.Direction = (Enums.Directions)Enum.Parse(typeof(Enums.Directions), splitted[3]);
                 return self;
             }
             else
@@ -72,6 +72,12 @@ namespace XNAGame
             {
                 return null;
             }
+
+
+        }
+        public Coordinate[][] createObjects()
+        {
+            Coordinate[][] map= new Coordinate[[]];
 
         }
         public CoinPile AquireCoins(String CoinDetails)
@@ -137,25 +143,26 @@ namespace XNAGame
                 String[] splitted = dataString.Split(colonArray);
                 playerList = new ArrayList();
                 //Add player details 
-                for (int i = 2; i < 11; i += 2)
+                for (int i = 1; i < 2; i++)
                 {
                     Player player = new Player();
                     String[] data = splitted[i].Split(semicolonArray);
-                   
-                    
-                    //player.Direction = (Enums.Directions)Enum.Parse(typeof(Tokenizer.Enums.Directions), data[2]);
+                    String[] location = data[1].Split(commaArray);
+                    player.LocationX = int.Parse(location[0]);
+                    player.LocationY = int.Parse(location[1]);
+                    player.Direction = (Enums.Directions)int.Parse(data[2]);
                     player.Shot = int.Parse(data[3]);// Dont know whether this is bool or not --TODO-- find type
                     player.health = int.Parse(data[4]);
                     player.Coins = int.Parse(data[5]);
                     player.points = int.Parse(data[6]);
                     playerList.Add(player);
-                    // For demo onlyj
-                    Console.WriteLine("==========Player "+player.Number+" Details===========" );
-                    //Console.WriteLine("Player Location X " + player.LocationX);
-                    //Console.WriteLine("Player Location Y " + player.LocationY);
-                    //Console.WriteLine("Player Direction " + player.Direction);
+                    // For demo only
+                    Console.WriteLine("==========Player " + player.Number + " Details===========");
+                    Console.WriteLine("Player Location X " + player.LocationX);
+                    Console.WriteLine("Player Location Y " + player.LocationY);
+                    Console.WriteLine("Player Direction " + player.Direction);
                     Console.WriteLine("Player Shot? " + player.Shot);
-                    Console.WriteLine("Player health "+player.health);
+                    Console.WriteLine("Player health " + player.health);
                     Console.WriteLine("Player Coins " + player.Coins);
                     Console.WriteLine("Player points " + player.points);
 
@@ -181,14 +188,15 @@ namespace XNAGame
                 MapDetails = MapDetails.Remove(MapDetails.Length - 1);
                 String[] splitted = MapDetails.Split(colonArray);
                 Map = new ArrayList();
-                for (int i = 11; i < splitted.Length; i++)
+                String[] temp = splitted[2].Split(semicolonArray);
+                for (int i = 0; i < temp.Length; i++)
                 {
                     coord = new Coordinate();
-                    String[] temp = splitted[i].Split(commaArray);
-                    coord.XCoordinate = int.Parse(temp[0]);
-                    coord.YCoordinate = int.Parse(temp[1]);
-                    coord.Damage = int.Parse(temp[2]);
-                    Console.WriteLine("Updating Location :" + coord.XCoordinate + "," + coord.YCoordinate+"Damage is :"+coord.Damage);
+                    String[] location = temp[i].Split(commaArray);
+                    coord.XCoordinate = int.Parse(location[0]);
+                    coord.YCoordinate = int.Parse(location[1]);
+                    coord.Damage = int.Parse(location[2]);
+                    Console.WriteLine("Updating Location :" + coord.XCoordinate + "," + coord.YCoordinate + "Damage is :" + coord.Damage);
                     Map.Add(coord);
                 }
                 return Map;
@@ -235,6 +243,7 @@ namespace XNAGame
             }
 
         }
+
 
 
 

@@ -80,6 +80,7 @@
     <Compile Include="PlayerDesc\Enums.cs" />
     <Compile Include="PlayerDesc\LifePack.cs" />
     <Compile Include="PlayerDesc\Player.cs" />
+    <Compile Include="PlayerDesc\Stone.cs" />
     <Compile Include="PlayerDesc\Water.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
