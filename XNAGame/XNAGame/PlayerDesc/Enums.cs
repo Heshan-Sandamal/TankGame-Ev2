@@ -30,7 +30,8 @@ namespace XNAGame.PlayerDesc
             BRICKS=1,
             STONE=2,
             WATER=3,
-            COIN=4
+            COIN=4,
+            PLAYER=5
         }
     }
 }

@@ -7,7 +7,7 @@ using XNAGame;
 
 namespace XNAGame.PlayerDesc
 {
-    class Player
+    class Player:Coordinate
     {
         public int LocationX { get; set; }
         public int LocationY { get; set; }
@@ -17,6 +17,7 @@ namespace XNAGame.PlayerDesc
         public int Coins { get; set; }
         public int points { get; set; }
         public int Number { get; set; }
+
 
     }
 }
