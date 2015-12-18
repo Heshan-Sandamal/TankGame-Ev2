@@ -3,12 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace XNAGame.PlayerDesc
+namespace XNAGame.PlayerDesc.Client
 {
-    class Stone :Coordinate
+    class Stone:GameObject
     {
-        public int LocationX { get; set; }
-        public int LocationY { get; set; }
-       
     }
 }

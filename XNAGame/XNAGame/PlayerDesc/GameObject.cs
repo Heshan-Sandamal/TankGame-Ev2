@@ -9,7 +9,6 @@ namespace XNAGame.PlayerDesc
     {
         public int LocationX { get; set; }
         public int LocationY { get; set; }
-        public int Damage { get; set; }
         public Enums.Type Type { get; set; }
     }
 }
