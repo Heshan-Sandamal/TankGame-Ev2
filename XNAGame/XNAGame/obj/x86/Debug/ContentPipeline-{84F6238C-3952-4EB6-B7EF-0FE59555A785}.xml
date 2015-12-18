@@ -7,8 +7,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Heshan Sandamal\Documents\Visual Studio 2013\Projects\workshopBy99X\XNAGame\XNAGame\XNAGame\bin\x86\Debug\Content\tankbackground.xnb</Output>
-      <Time>2015-12-17T22:37:52.9491862+05:30</Time>
+      <Output>E:\Game\New folder-II\TankGame-Ev2\XNAGame\XNAGame\bin\x86\Debug\Content\tankbackground.xnb</Output>
+      <Time>2015-12-18T06:57:56.3431742+05:30</Time>
     </Item>
     <Item>
       <Source>bricks.png</Source>
@@ -16,8 +16,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Heshan Sandamal\Documents\Visual Studio 2013\Projects\workshopBy99X\XNAGame\XNAGame\XNAGame\bin\x86\Debug\Content\bricks.xnb</Output>
-      <Time>2015-12-18T01:25:46.9092033+05:30</Time>
+      <Output>E:\Game\New folder-II\TankGame-Ev2\XNAGame\XNAGame\bin\x86\Debug\Content\bricks.xnb</Output>
+      <Time>2015-12-18T06:57:56.2731173+05:30</Time>
     </Item>
     <Item>
       <Source>bullet.png</Source>
@@ -25,8 +25,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Heshan Sandamal\Documents\Visual Studio 2013\Projects\workshopBy99X\XNAGame\XNAGame\XNAGame\bin\x86\Debug\Content\bullet.xnb</Output>
-      <Time>2015-12-18T01:25:47.161469+05:30</Time>
+      <Output>E:\Game\New folder-II\TankGame-Ev2\XNAGame\XNAGame\bin\x86\Debug\Content\bullet.xnb</Output>
+      <Time>2015-12-18T06:57:56.2751191+05:30</Time>
     </Item>
     <Item>
       <Source>coins.png</Source>
@@ -34,8 +34,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Heshan Sandamal\Documents\Visual Studio 2013\Projects\workshopBy99X\XNAGame\XNAGame\XNAGame\bin\x86\Debug\Content\coins.xnb</Output>
-      <Time>2015-12-18T01:25:47.1654719+05:30</Time>
+      <Output>E:\Game\New folder-II\TankGame-Ev2\XNAGame\XNAGame\bin\x86\Debug\Content\coins.xnb</Output>
+      <Time>2015-12-18T06:57:56.2771263+05:30</Time>
     </Item>
     <Item>
       <Source>enemy_down.png</Source>
@@ -43,8 +43,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Heshan Sandamal\Documents\Visual Studio 2013\Projects\workshopBy99X\XNAGame\XNAGame\XNAGame\bin\x86\Debug\Content\enemy_down.xnb</Output>
-      <Time>2015-12-18T01:25:47.1694742+05:30</Time>
+      <Output>E:\Game\New folder-II\TankGame-Ev2\XNAGame\XNAGame\bin\x86\Debug\Content\enemy_down.xnb</Output>
+      <Time>2015-12-18T06:57:56.2791507+05:30</Time>
     </Item>
     <Item>
       <Source>enemy_left.png</Source>
@@ -52,8 +52,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Heshan Sandamal\Documents\Visual Studio 2013\Projects\workshopBy99X\XNAGame\XNAGame\XNAGame\bin\x86\Debug\Content\enemy_left.xnb</Output>
-      <Time>2015-12-18T01:25:47.1926519+05:30</Time>
+      <Output>E:\Game\New folder-II\TankGame-Ev2\XNAGame\XNAGame\bin\x86\Debug\Content\enemy_left.xnb</Output>
+      <Time>2015-12-18T06:57:56.2801286+05:30</Time>
     </Item>
     <Item>
       <Source>enemy_right.png</Source>
@@ -61,8 +61,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Heshan Sandamal\Documents\Visual Studio 2013\Projects\workshopBy99X\XNAGame\XNAGame\XNAGame\bin\x86\Debug\Content\enemy_right.xnb</Output>
-      <Time>2015-12-18T01:25:47.1966575+05:30</Time>
+      <Output>E:\Game\New folder-II\TankGame-Ev2\XNAGame\XNAGame\bin\x86\Debug\Content\enemy_right.xnb</Output>
+      <Time>2015-12-18T06:57:56.2821243+05:30</Time>
     </Item>
     <Item>
       <Source>enemy_up.png</Source>
@@ -70,8 +70,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Heshan Sandamal\Documents\Visual Studio 2013\Projects\workshopBy99X\XNAGame\XNAGame\XNAGame\bin\x86\Debug\Content\enemy_up.xnb</Output>
-      <Time>2015-12-18T01:25:47.2006603+05:30</Time>
+      <Output>E:\Game\New folder-II\TankGame-Ev2\XNAGame\XNAGame\bin\x86\Debug\Content\enemy_up.xnb</Output>
+      <Time>2015-12-18T06:57:56.2841257+05:30</Time>
     </Item>
     <Item>
       <Source>lifepack.png</Source>
@@ -79,8 +79,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Heshan Sandamal\Documents\Visual Studio 2013\Projects\workshopBy99X\XNAGame\XNAGame\XNAGame\bin\x86\Debug\Content\lifepack.xnb</Output>
-      <Time>2015-12-18T01:25:47.2046632+05:30</Time>
+      <Output>E:\Game\New folder-II\TankGame-Ev2\XNAGame\XNAGame\bin\x86\Debug\Content\lifepack.xnb</Output>
+      <Time>2015-12-18T06:57:56.2851262+05:30</Time>
     </Item>
     <Item>
       <Source>Stones.png</Source>
@@ -88,8 +88,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Heshan Sandamal\Documents\Visual Studio 2013\Projects\workshopBy99X\XNAGame\XNAGame\XNAGame\bin\x86\Debug\Content\Stones.xnb</Output>
-      <Time>2015-12-18T01:25:47.208666+05:30</Time>
+      <Output>E:\Game\New folder-II\TankGame-Ev2\XNAGame\XNAGame\bin\x86\Debug\Content\Stones.xnb</Output>
+      <Time>2015-12-18T06:57:56.2571068+05:30</Time>
     </Item>
     <Item>
       <Source>tank_down.png</Source>
@@ -97,8 +97,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Heshan Sandamal\Documents\Visual Studio 2013\Projects\workshopBy99X\XNAGame\XNAGame\XNAGame\bin\x86\Debug\Content\tank_down.xnb</Output>
-      <Time>2015-12-18T01:25:47.2126856+05:30</Time>
+      <Output>E:\Game\New folder-II\TankGame-Ev2\XNAGame\XNAGame\bin\x86\Debug\Content\tank_down.xnb</Output>
+      <Time>2015-12-18T06:57:56.3151536+05:30</Time>
     </Item>
     <Item>
       <Source>tank_left.png</Source>
@@ -106,8 +106,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Heshan Sandamal\Documents\Visual Studio 2013\Projects\workshopBy99X\XNAGame\XNAGame\XNAGame\bin\x86\Debug\Content\tank_left.xnb</Output>
-      <Time>2015-12-18T01:25:47.2166716+05:30</Time>
+      <Output>E:\Game\New folder-II\TankGame-Ev2\XNAGame\XNAGame\bin\x86\Debug\Content\tank_left.xnb</Output>
+      <Time>2015-12-18T06:57:56.3171578+05:30</Time>
     </Item>
     <Item>
       <Source>tank_right.png</Source>
@@ -115,8 +115,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Heshan Sandamal\Documents\Visual Studio 2013\Projects\workshopBy99X\XNAGame\XNAGame\XNAGame\bin\x86\Debug\Content\tank_right.xnb</Output>
-      <Time>2015-12-18T01:25:47.2206745+05:30</Time>
+      <Output>E:\Game\New folder-II\TankGame-Ev2\XNAGame\XNAGame\bin\x86\Debug\Content\tank_right.xnb</Output>
+      <Time>2015-12-18T06:57:56.3181493+05:30</Time>
     </Item>
     <Item>
       <Source>tank_up.png</Source>
@@ -124,8 +124,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Heshan Sandamal\Documents\Visual Studio 2013\Projects\workshopBy99X\XNAGame\XNAGame\XNAGame\bin\x86\Debug\Content\tank_up.xnb</Output>
-      <Time>2015-12-18T01:25:47.224681+05:30</Time>
+      <Output>E:\Game\New folder-II\TankGame-Ev2\XNAGame\XNAGame\bin\x86\Debug\Content\tank_up.xnb</Output>
+      <Time>2015-12-18T06:57:56.3201577+05:30</Time>
     </Item>
     <Item>
       <Source>Water.png</Source>
@@ -133,8 +133,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Heshan Sandamal\Documents\Visual Studio 2013\Projects\workshopBy99X\XNAGame\XNAGame\XNAGame\bin\x86\Debug\Content\Water.xnb</Output>
-      <Time>2015-12-18T01:25:47.2276962+05:30</Time>
+      <Output>E:\Game\New folder-II\TankGame-Ev2\XNAGame\XNAGame\bin\x86\Debug\Content\Water.xnb</Output>
+      <Time>2015-12-18T06:57:56.2591078+05:30</Time>
     </Item>
     <Item>
       <Source>blank.png</Source>
@@ -142,8 +142,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Heshan Sandamal\Documents\Visual Studio 2013\Projects\workshopBy99X\XNAGame\XNAGame\XNAGame\bin\x86\Debug\Content\blank.xnb</Output>
-      <Time>2015-12-18T01:29:19.3259623+05:30</Time>
+      <Output>E:\Game\New folder-II\TankGame-Ev2\XNAGame\XNAGame\bin\x86\Debug\Content\blank.xnb</Output>
+      <Time>2015-12-18T06:57:56.2721176+05:30</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -152,10 +152,10 @@
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\Heshan Sandamal\Documents\Visual Studio 2013\Projects\workshopBy99X\XNAGame\XNAGame\XNAGameContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Heshan Sandamal\Documents\Visual Studio 2013\Projects\workshopBy99X\XNAGame\XNAGame\XNAGame\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Heshan Sandamal\Documents\Visual Studio 2013\Projects\workshopBy99X\XNAGame\XNAGame\XNAGame\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Heshan Sandamal\Documents\Visual Studio 2013\Projects\workshopBy99X\XNAGame\XNAGame\XNAGame\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>E:\Game\New folder-II\TankGame-Ev2\XNAGame\XNAGameContent\</RootDirectory>
+      <LoggerRootDirectory>E:\Game\New folder-II\TankGame-Ev2\XNAGame\XNAGame\</LoggerRootDirectory>
+      <IntermediateDirectory>E:\Game\New folder-II\TankGame-Ev2\XNAGame\XNAGame\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>E:\Game\New folder-II\TankGame-Ev2\XNAGame\XNAGame\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
@@ -183,8 +183,8 @@
         <Value>2011-09-01T16:22:30+05:30</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2015-11-13T13:08:05.2644539+05:30</Value>
+        <Key>C:\WINDOWS\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2015-09-25T18:28:25.2406869+05:30</Value>
       </Assembly>
     </Assemblies>
   </Asset>

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections;
 using XNAGame.PlayerDesc;
+using XNAGame.PlayerDesc.Client;
 namespace XNAGame
 {
     class TokenizerMain
@@ -13,6 +14,7 @@ namespace XNAGame
         char[] commaArray = { ',' };
         char[] semicolonArray = { ';' };
         string[,] terrain = new string[10, 10];
+        GameObject[,] map;
         public Player JoinReply(String Reply)
         {
             Player self;
@@ -62,9 +64,9 @@ namespace XNAGame
                 MapTerrain.Add("StoneLocations", stoneLocations);
                 String[] waterLocations = splitted[4].Split(semicolonArray);
                 MapTerrain.Add("WaterLocations", waterLocations);
-                PopulateTerrain(bricksLocations, "B");
-                PopulateTerrain(stoneLocations, "S");
-                PopulateTerrain(waterLocations, "W");
+                createObjects(bricksLocations, "B");
+                createObjects(stoneLocations, "S");
+                createObjects(waterLocations, "W");
                 DisplayTerrain();
                 return MapTerrain;
             }
@@ -75,11 +77,44 @@ namespace XNAGame
 
 
         }
-        public Coordinate[][] createObjects()
+        public void createObjects(String[] locations,String type)
         {
-            Coordinate[][] map= new Coordinate[[]];
+            map= new GameObject[10,10];
+            String[] temp;
+            foreach (String item in locations)
+            {
+                temp = item.Split(commaArray);
+                if (type == "B")
+                {
+                    Brick brick = new Brick();
+                    brick.LocationX = int.Parse(temp[1]);
+                    brick.LocationY = int.Parse(temp[0]);
+                    brick.health = int.Parse(temp[3]);
+                    map[int.Parse(temp[1]), int.Parse(temp[0])] =brick;
+                }
+                else if (type == "S")
+                {
+                    Stone stone = new Stone();
+                    stone.LocationX = int.Parse(temp[1]);
+                    stone.LocationY = int.Parse(temp[0]);
+                    map[int.Parse(temp[1]), int.Parse(temp[0])] = stone;
+                }
+                else if(type=="W"){
+                    Water water = new Water();
+                    water.LocationX = int.Parse(temp[1]);
+                    water.LocationY = int.Parse(temp[0]);
+                    map[int.Parse(temp[1]), int.Parse(temp[0])] = water;
 
+                }
+                
+            }
+            
         }
+        public GameObject[,] getTerrainInitializationArray()
+        {
+            return map;
+        }
+
         public CoinPile AquireCoins(String CoinDetails)
         {
             CoinPile Coins = new CoinPile();
@@ -95,7 +130,7 @@ namespace XNAGame
                 Coins.LeftTime = (int.Parse(CoinDrop[2]));
                 //Value of the coin pile 
                 Coins.Value = int.Parse(CoinDrop[3]);
-                Console.WriteLine("--------- Coins receiveed at X: " + Coins.LocationX + " Y: " + Coins.LocationY + " --------------");
+                Console.WriteLine("--------- Coins received at X: " + Coins.LocationX + " Y: " + Coins.LocationY + " --------------");
                 return Coins;
             }
             else
@@ -116,7 +151,7 @@ namespace XNAGame
                 lifepack.LocationY = int.Parse(Locations[1]);
                 //Get the left time
                 lifepack.LeftTime = int.Parse(LifePackDrop[2]);
-                Console.WriteLine("--------- Life packs receiveed at X: " + lifepack.LocationX + " Y: " + lifepack.LocationY + " --------------");
+                Console.WriteLine("--------- Life packs received at X: " + lifepack.LocationX + " Y: " + lifepack.LocationY + " --------------");
                 return lifepack;
             }
             else

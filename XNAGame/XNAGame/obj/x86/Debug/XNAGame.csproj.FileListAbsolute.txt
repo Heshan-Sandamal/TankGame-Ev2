@@ -26,3 +26,25 @@ C:\Users\Heshan Sandamal\Documents\Visual Studio 2013\Projects\workshopBy99X\XNA
 C:\Users\Heshan Sandamal\Documents\Visual Studio 2013\Projects\workshopBy99X\XNAGame\XNAGame\XNAGame\bin\x86\Debug\Content\tank_up.xnb
 C:\Users\Heshan Sandamal\Documents\Visual Studio 2013\Projects\workshopBy99X\XNAGame\XNAGame\XNAGame\bin\x86\Debug\Content\Water.xnb
 C:\Users\Heshan Sandamal\Documents\Visual Studio 2013\Projects\workshopBy99X\XNAGame\XNAGame\XNAGame\bin\x86\Debug\Content\blank.xnb
+E:\Game\New folder-II\TankGame-Ev2\XNAGame\XNAGame\bin\x86\Debug\Content\tankbackground.xnb
+E:\Game\New folder-II\TankGame-Ev2\XNAGame\XNAGame\bin\x86\Debug\Content\bricks.xnb
+E:\Game\New folder-II\TankGame-Ev2\XNAGame\XNAGame\bin\x86\Debug\Content\bullet.xnb
+E:\Game\New folder-II\TankGame-Ev2\XNAGame\XNAGame\bin\x86\Debug\Content\coins.xnb
+E:\Game\New folder-II\TankGame-Ev2\XNAGame\XNAGame\bin\x86\Debug\Content\enemy_down.xnb
+E:\Game\New folder-II\TankGame-Ev2\XNAGame\XNAGame\bin\x86\Debug\Content\enemy_left.xnb
+E:\Game\New folder-II\TankGame-Ev2\XNAGame\XNAGame\bin\x86\Debug\Content\enemy_right.xnb
+E:\Game\New folder-II\TankGame-Ev2\XNAGame\XNAGame\bin\x86\Debug\Content\enemy_up.xnb
+E:\Game\New folder-II\TankGame-Ev2\XNAGame\XNAGame\bin\x86\Debug\Content\lifepack.xnb
+E:\Game\New folder-II\TankGame-Ev2\XNAGame\XNAGame\bin\x86\Debug\Content\Stones.xnb
+E:\Game\New folder-II\TankGame-Ev2\XNAGame\XNAGame\bin\x86\Debug\Content\tank_down.xnb
+E:\Game\New folder-II\TankGame-Ev2\XNAGame\XNAGame\bin\x86\Debug\Content\tank_left.xnb
+E:\Game\New folder-II\TankGame-Ev2\XNAGame\XNAGame\bin\x86\Debug\Content\tank_right.xnb
+E:\Game\New folder-II\TankGame-Ev2\XNAGame\XNAGame\bin\x86\Debug\Content\tank_up.xnb
+E:\Game\New folder-II\TankGame-Ev2\XNAGame\XNAGame\bin\x86\Debug\Content\Water.xnb
+E:\Game\New folder-II\TankGame-Ev2\XNAGame\XNAGame\bin\x86\Debug\Content\blank.xnb
+E:\Game\New folder-II\TankGame-Ev2\XNAGame\XNAGame\bin\x86\Debug\XNAGame.exe
+E:\Game\New folder-II\TankGame-Ev2\XNAGame\XNAGame\bin\x86\Debug\XNAGame.pdb
+E:\Game\New folder-II\TankGame-Ev2\XNAGame\XNAGame\obj\x86\Debug\XNAGame.csprojResolveAssemblyReference.cache
+E:\Game\New folder-II\TankGame-Ev2\XNAGame\XNAGame\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+E:\Game\New folder-II\TankGame-Ev2\XNAGame\XNAGame\obj\x86\Debug\XNAGame.exe
+E:\Game\New folder-II\TankGame-Ev2\XNAGame\XNAGame\obj\x86\Debug\XNAGame.pdb
