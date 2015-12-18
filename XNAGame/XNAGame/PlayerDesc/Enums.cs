@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace XNAGame.PlayerDesc
 {
-    class Enums
+    public class Enums
     {
         public enum DamageLevel
         {
