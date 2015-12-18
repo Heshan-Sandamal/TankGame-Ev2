@@ -9,8 +9,7 @@ namespace XNAGame.PlayerDesc
     class CoinPile :GameObject
     {
 
-        public int LocationX { get; set; }
-        public int LocationY { get; set; }
+        
         public int LeftTime { get; set; }
         public int Value { get; set; }
 
