@@ -75,13 +75,13 @@
   <ItemGroup>
     <Compile Include="PlayerDesc\Brick.cs" />
     <Compile Include="PlayerDesc\Client\ClientConnectionInit.cs" />
+    <Compile Include="PlayerDesc\Stone.cs" />
     <Compile Include="PlayerDesc\CoinPile.cs" />
     <Compile Include="PlayerDesc\Coordinate.cs" />
     <Compile Include="PlayerDesc\Enums.cs" />
     <Compile Include="PlayerDesc\GameObject.cs" />
     <Compile Include="PlayerDesc\LifePack.cs" />
     <Compile Include="PlayerDesc\Player.cs" />
-    <Compile Include="PlayerDesc\Stone.cs" />
     <Compile Include="PlayerDesc\Water.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />

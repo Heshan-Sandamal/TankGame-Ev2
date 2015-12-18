@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using XNAGame.PlayerDesc;
 
 namespace XNAGame
 {
@@ -20,7 +21,7 @@ namespace XNAGame
         public Vector2 Position;
         public bool IsAlive;
         public Color Color;
-        public int type;
+        public Enums.Type type;
         public String Direction;
         public int user;
         public double harm;
@@ -38,7 +39,8 @@ namespace XNAGame
         PlayerData[] playerArray;
         Texture2D pixel;
         Texture2D backgroundTexture;
-        private Texture2D carriageTexture;
+        private Texture2D carriageTexture; 
+        private GameObject[,] map=new TokenizerMain().getTerrainInitializationArray();
 
         public Game1()
         {
@@ -164,111 +166,113 @@ namespace XNAGame
                      spriteBatch.Draw(carriageTexture, player.Position, Color.White);
                  }
              }*/
-           
-            
-                for (int i = 0; i < 10; i++)
+
+
+
+            for (int i = 0; i < 10; i++)
+            {
+                for (int j = 0; j < 10; j++)
                 {
-                    for (int j = 0; j < 10; j++)
+
+                    if ((map[i, j] != null))
                     {
-
-//                        if ((net.map[i][j].type) != 0)
-  //                      {
-                            /*PlayerData player = new PlayerData();
-                            String str = null;
-                            player.type = net.map[i][j].type;
-                            player.user=net.map[i][j].user;
-                            player.Direction=net.map[i][j].Direction;
-                            player.Position = new Vector2((i * 45)+4, ((j * 45)+5));
-                            if (player.type == 1)
+                        PlayerData player = new PlayerData();
+                        String str = null;
+                        player.type = map[i, j].Type;
+                        //player.user=
+                        //player.Direction=map[i,j].D
+                        player.Position = new Vector2((i * 45) + 4, ((j * 45) + 5));
+                        if (player.type == 0)
+                        {
+                            str = "lifepack";
+                        }
+                        else if (player.type == Enums.Type.BRICKS)
+                        {
+                            str = "bricks";
+                        }
+                        else if (player.type == Enums.Type.STONE)
+                        {
+                            str = "Stones";
+                        }
+                        else if (player.type == Enums.Type.PLAYER)
+                        {
+                            if (player.user == 1)
                             {
-                                str = "brick";
-                            }
-                            else if (player.type == 2)
-                            {
-                                str = "stone";
-                            }
-                            else if (player.type == 3)
-                            {
-                                str = "water";
-                            }
-                            else if (player.type == 4)
-                            {
-                                if (player.user == 1)
+                                if (player.Direction.Equals("WEST"))
                                 {
-                                    if (player.Direction.Equals("West"))
-                                    {
-                                        str = "tank_left";
-                                    }
-                                    else if (player.Direction.Equals("South"))
-                                    {
-                                        str = "tank_down";
-                                    }
-                                    else if (player.Direction.Equals("East"))
-                                    {
-                                        str = "tank_right";
-                                    }
-                                    else
-                                    {
-                                        str = "tank_up";
-                                    }
+                                    str = "tank_left";
                                 }
-                                if (player.user == 0)
+                                else if (player.Direction.Equals("SOUTH"))
                                 {
-                                    if (player.Direction.Equals("West"))
-                                    {
-                                        str = "enemy_left";
-                                    }
-                                    else if (player.Direction.Equals("South"))
-                                    {
-                                        str = "enemy_down";
-                                    }
-                                    else if (player.Direction.Equals("East"))
-                                    {
-                                        str = "enemy_right";
-                                    }
-                                    else
-                                    {
-                                        str = "enemy_up";
-                                    }
+                                    str = "tank_down";
                                 }
-
+                                else if (player.Direction.Equals("EAST"))
+                                {
+                                    str = "tank_right";
+                                }
+                                else
+                                {
+                                    str = "tank_up";
+                                }
                             }
-                            else if (player.type == 5)
+                            if (player.user == 0)
                             {
-                                str = "coins";
+                                if (player.Direction.Equals("WEST"))
+                                {
+                                    str = "enemy_left";
+                                }
+                                else if (player.Direction.Equals("SOUTH"))
+                                {
+                                    str = "enemy_down";
+                                }
+                                else if (player.Direction.Equals("EAST"))
+                                {
+                                    str = "enemy_right";
+                                }
+                                else
+                                {
+                                    str = "enemy_up";
+                                }
                             }
-                            else if (player.type == 6)
-                            {
-                                str = "life";
-                            }
-                            else if (player.type == 7)
-                            {
-                                str = "bullet";
-                            }
-                            carriageTexture = Content.Load<Texture2D>(str);
-                            spriteBatch.Draw(carriageTexture, player.Position, Color.White);
-                            
 
                         }
-                        else
-                        {*/
+                        else if (player.type == Enums.Type.COIN)
+                        {
+                            str = "coins";
+                        }
+                        else if (player.type == Enums.Type.LIFE)
+                        {
+                            str = "life";
+                        }
+                        /* else if (player.type == Enums.Type.)
+                         {
+                             str = "bullet";
+                         }*/
+                        carriageTexture = Content.Load<Texture2D>(str);
+                        spriteBatch.Draw(carriageTexture, player.Position, Color.White);
 
-                            PlayerData player = new PlayerData();
-                            //String str = null;
-                           // player.type = net.map[i][j].type;
-                            player.Position = new Vector2((i * 45)+4, ((j * 45)+5));
-                            carriageTexture = Content.Load<Texture2D>("blank");
-                            try
-                            {
-                                //spriteBatch.Begin();
-                                spriteBatch.Draw(carriageTexture, player.Position, Color.White);
-                                //spriteBatch.End();
-                            }
-                            catch (Exception e) { Console.WriteLine(e); }
-                        
+
+                    }
+                    else
+                    {
+
+                        PlayerData player = new PlayerData();
+                        //String str = null;
+                        // player.type = net.map[i][j].type;
+                        player.Position = new Vector2((i * 45) + 4, ((j * 45) + 5));
+                        carriageTexture = Content.Load<Texture2D>("blank");
+                        try
+                        {
+                            //spriteBatch.Begin();
+                            spriteBatch.Draw(carriageTexture, player.Position, Color.White);
+                            //spriteBatch.End();
+                        }
+                        catch (Exception e) { Console.WriteLine(e); }
+
                     }
                 }
 
             }
+        }
     }
 }

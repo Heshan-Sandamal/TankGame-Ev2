@@ -16,6 +16,7 @@ namespace XNAGame.PlayerDesc
         public int Coins { get; set; }
         public int points { get; set; }
         public int Number { get; set; }
+        public int playerType { get; set; }
 
 
     }
