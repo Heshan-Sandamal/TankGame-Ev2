@@ -88,26 +88,30 @@ namespace XNAGame
                 if (type == "B")
                 {
                     Brick brick = new Brick();
-                    brick.LocationX = int.Parse(temp[0]);
-                    brick.LocationY = int.Parse(temp[1]);
-                    brick.health = 0;
+
+                    brick.LocationX = int.Parse(temp[1]);
+                    brick.LocationY = int.Parse(temp[0]);
+                    brick.health = int.Parse(temp[3]);
                     brick.Type = Enums.Type.BRICKS;
-                    map[int.Parse(temp[0]), int.Parse(temp[1])] =brick;
+                    map[int.Parse(temp[1]), int.Parse(temp[0])] =brick;
+
                 }
                 else if (type == "S")
                 {
                     Stone stone = new Stone();
-                    stone.LocationX = int.Parse(temp[0]);
-                    stone.LocationY = int.Parse(temp[1]);
+
+                    stone.LocationX = int.Parse(temp[1]);
+                    stone.LocationY = int.Parse(temp[0]);
                     stone.Type = Enums.Type.STONE;
-                    map[int.Parse(temp[0]), int.Parse(temp[1])] = stone;
+                    map[int.Parse(temp[1]), int.Parse(temp[0])] = stone;
                 }
                 else if(type=="W"){
                     Water water = new Water();
-                    water.LocationX = int.Parse(temp[0]);
-                    water.LocationY = int.Parse(temp[1]);
+                    water.LocationX = int.Parse(temp[1]);
+                    water.LocationY = int.Parse(temp[0]);
                     water.Type = Enums.Type.WATER;
-                    map[int.Parse(temp[0]), int.Parse(temp[1])] = water;
+                    map[int.Parse(temp[1]), int.Parse(temp[0])] = water;
+
 
                 }
                 
