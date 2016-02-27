@@ -1,3 +1,2 @@
 C:\Users\Heshan Sandamal\Documents\Visual Studio 2013\Projects\XNAGame\XNAGame\XNAGameContent\obj\x86\Debug\XNAGameContent.contentprojResolveAssemblyReference.cache
-C:\Users\Heshan Sandamal\Documents\Visual Studio 2013\Projects\workshopBy99X\XNAGame\XNAGame\XNAGameContent\obj\x86\Debug\XNAGameContent.contentprojResolveAssemblyReference.cache
 E:\Game\New folder-II\TankGame-Ev2\XNAGame\XNAGameContent\obj\x86\Debug\XNAGameContent.contentprojResolveAssemblyReference.cache

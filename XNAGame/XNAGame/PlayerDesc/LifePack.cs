@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace XNAGame.PlayerDesc
 {
-    class LifePack : GameObject
+    public class LifePack : GameObject
     {
         
         public int LeftTime { get; set; }

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace XNAGame.PlayerDesc
 {
-    class Brick:GameObject
+    public class Brick:GameObject
     {
         
         public int health { get; set; }

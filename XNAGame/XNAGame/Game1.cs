@@ -9,6 +9,9 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using XNAGame.PlayerDesc;
+using XNAGame.Client;
+using XNAGame.util;
+using System.Threading;
 
 namespace XNAGame
 {
@@ -22,7 +25,7 @@ namespace XNAGame
         public bool IsAlive;
         public Color Color;
         public Enums.Type type;
-        public String Direction;
+        public Enums.Directions Direction;
         public int user;
         public double harm;
 
@@ -30,6 +33,7 @@ namespace XNAGame
 
     public class Game1 : Microsoft.Xna.Framework.Game
     {
+        private static TokenizerMain torkenizerMain;
         GraphicsDeviceManager graphics;
         GraphicsDevice device;
         SpriteBatch spriteBatch;
@@ -39,13 +43,27 @@ namespace XNAGame
         PlayerData[] playerArray;
         Texture2D pixel;
         Texture2D backgroundTexture;
-        private Texture2D carriageTexture; 
-        private GameObject[,] map=new TokenizerMain().getTerrainInitializationArray();
+        private Texture2D carriageTexture;
+        private GameObject[,] map = null;
 
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+
+
+            
+
+            map = torkenizerMain.getTerrainInitializationArray();
+
+            
+            
+
+
+
+            
+            
+
         }
 
         /// <summary>
@@ -156,6 +174,10 @@ namespace XNAGame
         }
 
 
+       public static void setTorkenizerMain(TokenizerMain t) {
+            torkenizerMain = t;
+        }
+
         private void DrawPlayers()
         {
             /* foreach (PlayerData player in players)
@@ -166,23 +188,31 @@ namespace XNAGame
                      spriteBatch.Draw(carriageTexture, player.Position, Color.White);
                  }
              }*/
+            Console.WriteLine("this is drawing");
 
-
+            map = torkenizerMain.getTerrainInitializationArray();
 
             for (int i = 0; i < 10; i++)
             {
                 for (int j = 0; j < 10; j++)
                 {
+                 
+   
 
                     if ((map[i, j] != null))
                     {
+
+                        
+
+
                         PlayerData player = new PlayerData();
                         String str = null;
                         player.type = map[i, j].Type;
                         //player.user=
-                        //player.Direction=map[i,j].D
+                        //
+
                         player.Position = new Vector2((i * 45) + 4, ((j * 45) + 5));
-                        if (player.type == 0)
+                        if (player.type == Enums.Type.LIFE)
                         {
                             str = "lifepack";
                         }
@@ -196,17 +226,18 @@ namespace XNAGame
                         }
                         else if (player.type == Enums.Type.PLAYER)
                         {
+                            player.Direction = ((Player)map[i, j]).Direction;
                             if (player.user == 1)
                             {
-                                if (player.Direction.Equals("WEST"))
+                                if (player.Direction == Enums.Directions.WEST)
                                 {
                                     str = "tank_left";
                                 }
-                                else if (player.Direction.Equals("SOUTH"))
+                                else if (player.Direction == Enums.Directions.SOUTH)
                                 {
                                     str = "tank_down";
                                 }
-                                else if (player.Direction.Equals("EAST"))
+                                else if (player.Direction == Enums.Directions.EAST)
                                 {
                                     str = "tank_right";
                                 }
@@ -217,15 +248,15 @@ namespace XNAGame
                             }
                             if (player.user == 0)
                             {
-                                if (player.Direction.Equals("WEST"))
+                                if (player.Direction==Enums.Directions.WEST)
                                 {
                                     str = "enemy_left";
                                 }
-                                else if (player.Direction.Equals("SOUTH"))
+                                else if (player.Direction == Enums.Directions.SOUTH)
                                 {
                                     str = "enemy_down";
                                 }
-                                else if (player.Direction.Equals("EAST"))
+                                else if (player.Direction == Enums.Directions.EAST)
                                 {
                                     str = "enemy_right";
                                 }
@@ -233,6 +264,7 @@ namespace XNAGame
                                 {
                                     str = "enemy_up";
                                 }
+                                //Console.WriteLine(str);
                             }
 
                         }
@@ -240,9 +272,10 @@ namespace XNAGame
                         {
                             str = "coins";
                         }
-                        else if (player.type == Enums.Type.LIFE)
+                        
+                        else if (player.type == Enums.Type.WATER)
                         {
-                            str = "life";
+                            str = "Water";
                         }
                         /* else if (player.type == Enums.Type.)
                          {
@@ -256,6 +289,7 @@ namespace XNAGame
                     else
                     {
 
+                       
                         PlayerData player = new PlayerData();
                         //String str = null;
                         // player.type = net.map[i][j].type;
@@ -267,7 +301,9 @@ namespace XNAGame
                             spriteBatch.Draw(carriageTexture, player.Position, Color.White);
                             //spriteBatch.End();
                         }
+
                         catch (Exception e) { Console.WriteLine(e); }
+                        map = torkenizerMain.getTerrainInitializationArray();
 
                     }
                 }

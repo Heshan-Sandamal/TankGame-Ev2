@@ -5,7 +5,7 @@ using System.Text;
 
 namespace XNAGame.PlayerDesc.Client
 {
-    class Stone:GameObject
+    public class Stone : GameObject
     {
     }
 }

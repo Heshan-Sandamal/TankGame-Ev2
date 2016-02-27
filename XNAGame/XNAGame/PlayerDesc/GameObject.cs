@@ -5,7 +5,7 @@ using System.Text;
 
 namespace XNAGame.PlayerDesc
 {
-    class GameObject
+    public class GameObject
     {
         public int LocationX { get; set; }
         public int LocationY { get; set; }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace XNAGame.PlayerDesc
 {
-    class CoinPile :GameObject
+    public class CoinPile :GameObject
     {
 
         

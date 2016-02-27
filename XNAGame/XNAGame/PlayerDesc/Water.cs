@@ -5,7 +5,7 @@ using System.Text;
 
 namespace XNAGame.PlayerDesc
 {
-    class Water : GameObject
+    public class Water : GameObject
     {
         
         

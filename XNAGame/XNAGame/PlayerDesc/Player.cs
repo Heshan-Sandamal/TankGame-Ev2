@@ -7,7 +7,7 @@ using XNAGame;
 
 namespace XNAGame.PlayerDesc
 {
-    class Player:GameObject
+    public class Player:GameObject
     {
         
         public Enums.Directions Direction { get; set; }

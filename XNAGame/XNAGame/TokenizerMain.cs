@@ -8,13 +8,14 @@ using XNAGame.PlayerDesc;
 using XNAGame.PlayerDesc.Client;
 namespace XNAGame
 {
-    class TokenizerMain
+    public class TokenizerMain
     {
         char[] colonArray = { ':' };
         char[] commaArray = { ',' };
         char[] semicolonArray = { ';' };
         string[,] terrain = new string[10, 10];
-        GameObject[,] map;
+        static GameObject[,] map= new GameObject[10,10];
+        private static Player[] playerarray=null;
         public Player JoinReply(String Reply)
         {
             Player self;
@@ -79,7 +80,7 @@ namespace XNAGame
         }
         public void createObjects(String[] locations,String type)
         {
-            map= new GameObject[10,10];
+            //map= new GameObject[10,10];
             String[] temp;
             foreach (String item in locations)
             {
@@ -87,23 +88,26 @@ namespace XNAGame
                 if (type == "B")
                 {
                     Brick brick = new Brick();
-                    brick.LocationX = int.Parse(temp[1]);
-                    brick.LocationY = int.Parse(temp[0]);
-                    brick.health = int.Parse(temp[3]);
-                    map[int.Parse(temp[1]), int.Parse(temp[0])] =brick;
+                    brick.LocationX = int.Parse(temp[0]);
+                    brick.LocationY = int.Parse(temp[1]);
+                    brick.health = 0;
+                    brick.Type = Enums.Type.BRICKS;
+                    map[int.Parse(temp[0]), int.Parse(temp[1])] =brick;
                 }
                 else if (type == "S")
                 {
                     Stone stone = new Stone();
-                    stone.LocationX = int.Parse(temp[1]);
-                    stone.LocationY = int.Parse(temp[0]);
-                    map[int.Parse(temp[1]), int.Parse(temp[0])] = stone;
+                    stone.LocationX = int.Parse(temp[0]);
+                    stone.LocationY = int.Parse(temp[1]);
+                    stone.Type = Enums.Type.STONE;
+                    map[int.Parse(temp[0]), int.Parse(temp[1])] = stone;
                 }
                 else if(type=="W"){
                     Water water = new Water();
-                    water.LocationX = int.Parse(temp[1]);
-                    water.LocationY = int.Parse(temp[0]);
-                    map[int.Parse(temp[1]), int.Parse(temp[0])] = water;
+                    water.LocationX = int.Parse(temp[0]);
+                    water.LocationY = int.Parse(temp[1]);
+                    water.Type = Enums.Type.WATER;
+                    map[int.Parse(temp[0]), int.Parse(temp[1])] = water;
 
                 }
                 
@@ -112,6 +116,21 @@ namespace XNAGame
         }
         public GameObject[,] getTerrainInitializationArray()
         {
+            /*Brick brick = new Brick();
+            brick.LocationX = 2;
+            brick.LocationY = 3;
+            brick.health = 7;
+            map[2,3] = brick;
+
+            CoinPile coins = new CoinPile();
+            coins.LocationX = (2);
+            coins.LocationY = (7);
+            //Get the time left with the coin pile.
+            coins.LeftTime = (12);
+            coins.Type = Enums.Type.COIN;
+
+            map[4, 5] = coins;
+            */
             return map;
         }
 
@@ -178,8 +197,24 @@ namespace XNAGame
                 String[] splitted = dataString.Split(colonArray);
                 playerList = new ArrayList();
                 //Add player details 
-                for (int i = 1; i < 2; i++)
+                
+
+                if(playerarray!=null){
+                    foreach (Player p in playerarray)
+                    {
+
+                        map[p.LocationX, p.LocationY] = null;
+
+                    }
+                }
+                
+
+                playerarray = new Player[5];
+
+
+                for (int i = 1; i < 6; i++)
                 {
+                   
                     Player player = new Player();
                     String[] data = splitted[i].Split(semicolonArray);
                     String[] location = data[1].Split(commaArray);
@@ -190,8 +225,16 @@ namespace XNAGame
                     player.health = int.Parse(data[4]);
                     player.Coins = int.Parse(data[5]);
                     player.points = int.Parse(data[6]);
+                    player.Type = Enums.Type.PLAYER;
                     playerList.Add(player);
+                    playerarray[i - 1] = player;
                     // For demo only
+
+
+                    map[int.Parse(location[0]), int.Parse(location[1])] = player;
+
+                    
+
                     Console.WriteLine("==========Player " + player.Number + " Details===========");
                     Console.WriteLine("Player Location X " + player.LocationX);
                     Console.WriteLine("Player Location Y " + player.LocationY);
