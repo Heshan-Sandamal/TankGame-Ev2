@@ -149,6 +149,9 @@ namespace XNAGame
                 Coins.LeftTime = (int.Parse(CoinDrop[2]));
                 //Value of the coin pile 
                 Coins.Value = int.Parse(CoinDrop[3]);
+                Coins.Type = Enums.Type.COIN;
+                map[Coins.LocationX, Coins.LocationY] = Coins;
+
                 Console.WriteLine("--------- Coins received at X: " + Coins.LocationX + " Y: " + Coins.LocationY + " --------------");
                 return Coins;
             }
@@ -171,6 +174,8 @@ namespace XNAGame
                 //Get the left time
                 lifepack.LeftTime = int.Parse(LifePackDrop[2]);
                 Console.WriteLine("--------- Life packs received at X: " + lifepack.LocationX + " Y: " + lifepack.LocationY + " --------------");
+                lifepack.Type = Enums.Type.LIFE;
+                map[lifepack.LocationX, lifepack.LocationY] = lifepack;
                 return lifepack;
             }
             else
