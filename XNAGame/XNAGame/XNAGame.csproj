@@ -73,8 +73,12 @@
     <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PlayerDesc\AI\DijkstraAlgorithm.cs" />
     <Compile Include="PlayerDesc\Brick.cs" />
     <Compile Include="PlayerDesc\Client\ClientConnectionInit.cs" />
+    <Compile Include="PlayerDesc\Edge.cs" />
+    <Compile Include="PlayerDesc\Graph.cs" />
+    <Compile Include="PlayerDesc\PathOptimizer.cs" />
     <Compile Include="PlayerDesc\Stone.cs" />
     <Compile Include="PlayerDesc\CoinPile.cs" />
     <Compile Include="PlayerDesc\Coordinate.cs" />

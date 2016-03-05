@@ -87,7 +87,7 @@ namespace XNAGame.ServerConn
                             else if (messageFromServer.StartsWith("S") && messageFromServer.EndsWith("#"))
                             {
                                 Console.WriteLine("accept & start the game");
-                                //torkenizer.acceptance(messageFromServer);
+                                torkenizer.JoinReply(messageFromServer);
                             }
                             else if (messageFromServer.StartsWith("C"))
                             {

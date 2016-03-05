@@ -178,6 +178,48 @@ namespace XNAGame
             torkenizerMain = t;
         }
 
+
+
+       private void addEdges(int i,int j) {
+           try{
+               if (map[i - 1, j] == null)
+               {
+                   Graph.edges.Add(new Edge(i, map[i, j], map[i - 1, j], 1));
+               }
+               else if (map[i - 1, j].Type == Enums.Type.BRICKS)
+               {
+                   Graph.edges.Add(new Edge(i, map[i, j], map[i - 1, j], 5));
+               }
+
+               if (map[i + 1, j] == null)
+               {
+                   Graph.edges.Add(new Edge(i, map[i, j], map[i + 1, j], 1));
+               }
+               else if (map[i + 1, j].Type == Enums.Type.BRICKS)
+               {
+                   Graph.edges.Add(new Edge(i, map[i, j], map[i + 1, j], 5));
+               }
+
+               if (map[i, j - 1] == null)
+               {
+                   Graph.edges.Add(new Edge(i, map[i, j], map[i, j - 1], 1));
+               }
+               else if (map[i, j-1].Type == Enums.Type.BRICKS)
+               {
+                   Graph.edges.Add(new Edge(i, map[i, j], map[i, j - 1], 5));
+               }
+
+               if (map[i, j + 1] == null)
+               {
+                   Graph.edges.Add(new Edge(i, map[i, j], map[i, j + 1], 1));
+               }
+               else if (map[i, j+1].Type == Enums.Type.BRICKS)
+               {
+                   Graph.edges.Add(new Edge(i, map[i, j], map[i, j + 1], 5));
+               }
+           }catch(IndexOutOfRangeException e){}
+       }
+
         private void DrawPlayers()
         {
             /* foreach (PlayerData player in players)
@@ -191,13 +233,16 @@ namespace XNAGame
             Console.WriteLine("this is drawing");
 
             map = torkenizerMain.getTerrainInitializationArray();
+            Graph.vertexes = new List<GameObject>();
+            Graph.edges = new List<Edge>();
 
             for (int i = 0; i < 10; i++)
             {
                 for (int j = 0; j < 10; j++)
                 {
-                 
-   
+
+                    
+
 
                     if ((map[i, j] != null))
                     {
@@ -208,6 +253,7 @@ namespace XNAGame
                         PlayerData player = new PlayerData();
                         String str = null;
                         player.type = map[i, j].Type;
+
                         //player.user=
                         //
 
@@ -215,9 +261,13 @@ namespace XNAGame
                         if (player.type == Enums.Type.LIFE)
                         {
                             str = "lifepack";
+                            Graph.vertexes.Add(map[i, j]);
+                            addEdges(i, j);
                         }
                         else if (player.type == Enums.Type.BRICKS)
                         {
+                            addEdges(i, j);
+                            Graph.vertexes.Add(map[i, j]);
                             str = "bricks";
                         }
                         else if (player.type == Enums.Type.STONE)
@@ -226,6 +276,9 @@ namespace XNAGame
                         }
                         else if (player.type == Enums.Type.PLAYER)
                         {
+                            addEdges(i, j);
+                            Graph.vertexes.Add(map[i, j]);
+
                             player.Direction = ((Player)map[i, j]).Direction;
                             if (player.user == 1)
                             {
@@ -271,6 +324,8 @@ namespace XNAGame
                         else if (player.type == Enums.Type.COIN)
                         {
                             str = "coins";
+                            Graph.vertexes.Add(map[i, j]);
+                            addEdges(i, j);
                         }
                         
                         else if (player.type == Enums.Type.WATER)
@@ -289,7 +344,11 @@ namespace XNAGame
                     else
                     {
 
-                       
+                        GameObject gameOb = new GameObject();
+                        gameOb.LocationX = i;
+                        gameOb.LocationY = j;
+                        Graph.vertexes.Add(gameOb);
+
                         PlayerData player = new PlayerData();
                         //String str = null;
                         // player.type = net.map[i][j].type;
@@ -305,10 +364,32 @@ namespace XNAGame
                         catch (Exception e) { Console.WriteLine(e); }
                         map = torkenizerMain.getTerrainInitializationArray();
 
+                        addEdges(i,j);
+
+
+
                     }
                 }
+               
 
             }
+
+            XNAGame.PlayerDesc.AI.DijkstraAlgorithm dij = new PlayerDesc.AI.DijkstraAlgorithm(new Graph(null,null));
+
+            GameObject g = new GameObject();
+            g.LocationX=0;
+            g.LocationY=0;
+
+            GameObject des = new GameObject();
+            g.LocationX=9;
+            g.LocationY=9;
+
+            dij.execute(g);
+
+            LinkedList<GameObject> path=dij.getPath(des);
+            Console.WriteLine(path.ElementAt(0));
+            
+            
         }
     }
 }

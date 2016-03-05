@@ -10,9 +10,11 @@ namespace XNAGame
 {
     public class TokenizerMain
     {
-        char[] colonArray = { ':' };
-        char[] commaArray = { ',' };
-        char[] semicolonArray = { ';' };
+        static char[] colonArray = { ':' };
+        static char[] commaArray = { ',' };
+        static char[] semicolonArray = { ';' };
+        public static int PLAYER_NO;
+        public static ArrayList playerList;
         string[,] terrain = new string[10, 10];
         static GameObject[,] map= new GameObject[10,10];
         private static Player[] playerarray=null;
@@ -57,7 +59,8 @@ namespace XNAGame
                 //Add Player number to HT 
                 if (splitted[1].Substring(0).StartsWith("P", true, null))
                 {
-                    MapTerrain.Add("PlayerNumber", int.Parse(splitted[1].Substring(1)));
+                    PLAYER_NO = int.Parse(splitted[1].Substring(1));
+                    MapTerrain.Add("PlayerNumber",PLAYER_NO );
                 }
                 String[] bricksLocations = splitted[2].Split(semicolonArray);
                 MapTerrain.Add("BrickLocations", bricksLocations);
@@ -93,6 +96,7 @@ namespace XNAGame
                     brick.health = 0;
                     brick.Type = Enums.Type.BRICKS;
                     map[int.Parse(temp[0]), int.Parse(temp[1])] =brick;
+                    //Graph.vertexes.Add(brick);
                 }
                 else if (type == "S")
                 {
@@ -101,6 +105,7 @@ namespace XNAGame
                     stone.LocationY = int.Parse(temp[1]);
                     stone.Type = Enums.Type.STONE;
                     map[int.Parse(temp[0]), int.Parse(temp[1])] = stone;
+                    
                 }
                 else if(type=="W"){
                     Water water = new Water();
@@ -197,7 +202,7 @@ namespace XNAGame
         }
         public ArrayList UpdatePlayerStats(String dataString)
         {
-            ArrayList playerList;
+   
             if (dataString.EndsWith("#"))
             {
                 String[] splitted = dataString.Split(colonArray);
