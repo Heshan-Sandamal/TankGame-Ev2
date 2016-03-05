@@ -48,3 +48,25 @@ C:\Users\Heshan Sandamal\Documents\Visual Studio 2013\Projects\workshopBy99X\XNA
 C:\Users\Heshan Sandamal\Documents\Visual Studio 2013\Projects\workshopBy99X\XNAGame\XNAGame\XNAGame\obj\x86\Debug\XNAGame.exe
 C:\Users\Heshan Sandamal\Documents\Visual Studio 2013\Projects\workshopBy99X\XNAGame\XNAGame\XNAGame\obj\x86\Debug\XNAGame.pdb
 C:\Users\Heshan Sandamal\Documents\Visual Studio 2013\Projects\workshopBy99X\XNAGame\XNAGame\XNAGame\obj\x86\Debug\XNAGame.csprojResolveAssemblyReference.cache
+E:\Junk\Junk\TankGame-Ev2\XNAGame\XNAGame\obj\x86\Debug\XNAGame.csprojResolveAssemblyReference.cache
+E:\Junk\Junk\TankGame-Ev2\XNAGame\XNAGame\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+E:\Junk\Junk\TankGame-Ev2\XNAGame\XNAGame\obj\x86\Debug\XNAGame.exe
+E:\Junk\Junk\TankGame-Ev2\XNAGame\XNAGame\bin\x86\Debug\Content\tankbackground.xnb
+E:\Junk\Junk\TankGame-Ev2\XNAGame\XNAGame\bin\x86\Debug\Content\bricks.xnb
+E:\Junk\Junk\TankGame-Ev2\XNAGame\XNAGame\bin\x86\Debug\Content\bullet.xnb
+E:\Junk\Junk\TankGame-Ev2\XNAGame\XNAGame\bin\x86\Debug\Content\coins.xnb
+E:\Junk\Junk\TankGame-Ev2\XNAGame\XNAGame\bin\x86\Debug\Content\enemy_down.xnb
+E:\Junk\Junk\TankGame-Ev2\XNAGame\XNAGame\bin\x86\Debug\Content\enemy_left.xnb
+E:\Junk\Junk\TankGame-Ev2\XNAGame\XNAGame\bin\x86\Debug\Content\enemy_right.xnb
+E:\Junk\Junk\TankGame-Ev2\XNAGame\XNAGame\bin\x86\Debug\Content\enemy_up.xnb
+E:\Junk\Junk\TankGame-Ev2\XNAGame\XNAGame\bin\x86\Debug\Content\lifepack.xnb
+E:\Junk\Junk\TankGame-Ev2\XNAGame\XNAGame\bin\x86\Debug\Content\Stones.xnb
+E:\Junk\Junk\TankGame-Ev2\XNAGame\XNAGame\bin\x86\Debug\Content\tank_down.xnb
+E:\Junk\Junk\TankGame-Ev2\XNAGame\XNAGame\bin\x86\Debug\Content\tank_left.xnb
+E:\Junk\Junk\TankGame-Ev2\XNAGame\XNAGame\bin\x86\Debug\Content\tank_right.xnb
+E:\Junk\Junk\TankGame-Ev2\XNAGame\XNAGame\bin\x86\Debug\Content\tank_up.xnb
+E:\Junk\Junk\TankGame-Ev2\XNAGame\XNAGame\bin\x86\Debug\Content\Water.xnb
+E:\Junk\Junk\TankGame-Ev2\XNAGame\XNAGame\bin\x86\Debug\Content\blank.xnb
+E:\Junk\Junk\TankGame-Ev2\XNAGame\XNAGame\bin\x86\Debug\XNAGame.exe
+E:\Junk\Junk\TankGame-Ev2\XNAGame\XNAGame\bin\x86\Debug\XNAGame.pdb
+E:\Junk\Junk\TankGame-Ev2\XNAGame\XNAGame\obj\x86\Debug\XNAGame.pdb
