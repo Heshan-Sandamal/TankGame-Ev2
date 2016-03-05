@@ -37,9 +37,19 @@ namespace XNAGame.PlayerDesc.AI
             }
         }
 
-        private GameObject getMinimum(ISet<GameObject> unSettledNodes)
-        {
-            throw new NotImplementedException();
+        private GameObject getMinimum(ISet<GameObject> vertexes) {
+                GameObject minimum = null;
+                foreach (GameObject gameObj in vertexes) {
+                  if (minimum == null) {
+                      minimum = gameObj;
+                  } else {
+                      if (getShortestDistance(gameObj) < getShortestDistance(minimum))
+                      {
+                          minimum = gameObj;
+                    }
+                  }
+                }
+                return minimum;
         }
         private void findMinimalDistances(GameObject node)
         {
