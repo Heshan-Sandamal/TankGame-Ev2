@@ -17,7 +17,8 @@ namespace XNAGame
         public static ArrayList playerList;
         string[,] terrain = new string[10, 10];
         static GameObject[,] map= new GameObject[10,10];
-        private static Player[] playerarray=null;
+        private static List<Player> playerarray=null;
+        public static int selfNumber;
         public Player JoinReply(String Reply)
         {
             Player self;
@@ -31,6 +32,7 @@ namespace XNAGame
                 if (splitted[1].Substring(0).StartsWith("P", true, null))
                 {
                     self.Number = int.Parse(splitted[1].Substring(1));
+                    TokenizerMain.selfNumber = self.Number;
                 }
                 // initial player Location x and y
                 String[] Locations = splitted[2].Split(commaArray);
@@ -216,14 +218,16 @@ namespace XNAGame
                 if(playerarray!=null){
                     foreach (Player p in playerarray)
                     {
-
-                        map[p.LocationX, p.LocationY] = null;
+                        if(p!=null){
+                            map[p.LocationX, p.LocationY] = null;                        
+                        }
+                        
 
                     }
                 }
-                
 
-                playerarray = new Player[5];
+
+                playerarray = new List<Player>();
 
 
                 for (int i = 1; i < 6; i++)
@@ -242,7 +246,11 @@ namespace XNAGame
                     player.id = player.LocationX + ":" + player.LocationY;
                     player.Type = Enums.Type.PLAYER;
                     playerList.Add(player);
-                    playerarray[i - 1] = player;
+                    playerarray.Add(player);
+
+                    if(i==selfNumber){
+                        player.playerType = 1;
+                    }
                     // For demo only
 
 

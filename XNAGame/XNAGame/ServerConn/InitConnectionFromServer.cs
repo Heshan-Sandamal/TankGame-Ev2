@@ -84,7 +84,7 @@ namespace XNAGame.ServerConn
                                 //Console.WriteLine("initialize");
                                 torkenizer.LifePacks(messageFromServer);                //accept life packs
                             }
-                            else if (messageFromServer.StartsWith("S") && messageFromServer.EndsWith("#"))
+                            else if (messageFromServer.StartsWith("S"))
                             {
                                 Console.WriteLine("accept & start the game");
                                 torkenizer.JoinReply(messageFromServer);

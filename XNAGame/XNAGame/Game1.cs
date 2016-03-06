@@ -151,19 +151,17 @@ namespace XNAGame
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-            // TODO: Add your drawing code here
-
-            spriteBatch.Begin();
-            DrawScenery();
-            DrawPlayers();
 
             Thread thread = new Thread(new ThreadStart(() => updatePlayerLocation()));
             thread.Start();
 
+            // TODO: Add your drawing code here
+            spriteBatch.Begin();
+            DrawScenery();
+            DrawPlayers();
 
             Rectangle titleSafeRectangle = GraphicsDevice.Viewport.TitleSafeArea;
 
-            // Call our method (also defined in this blog-post)
             DrawBorder(titleSafeRectangle, 4, Color.Silver);
             spriteBatch.End();
 
@@ -176,7 +174,7 @@ namespace XNAGame
 
 
         private void updatePlayerLocation() {
-            if (lastPress + 500 < CurrentTimeMillis())
+            if (lastPress + 1200 < CurrentTimeMillis())
             {
                 //msgSender.left();
                 //gameAI.move();
@@ -299,7 +297,7 @@ namespace XNAGame
                         PlayerData player = new PlayerData();
                         String str = null;
                         player.type = map[i, j].Type;
-
+                        
                         //player.user=
                         //
 
@@ -326,6 +324,8 @@ namespace XNAGame
                             Graph.vertexes.Add(map[i, j]);
 
                             player.Direction = ((Player)map[i, j]).Direction;
+                            player.user = ((Player)map[i, j]).playerType;
+
                             if (player.user == 1)
                             {
                                 if (player.Direction == Enums.Directions.WEST)
