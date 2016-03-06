@@ -11,7 +11,6 @@ namespace XNAGame.PlayerDesc
         public int LocationY { get; set; }
         public Enums.Type Type { get; set; }
         public String id { get; set; }
-
         public override int GetHashCode()
         {
             
