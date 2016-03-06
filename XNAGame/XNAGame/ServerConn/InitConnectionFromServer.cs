@@ -81,7 +81,7 @@ namespace XNAGame.ServerConn
                             if (messageFromServer.StartsWith("L"))
                             {
 
-                                //Console.WriteLine("initialize");
+                                Console.WriteLine("initialize");
                                 torkenizer.LifePacks(messageFromServer);                //accept life packs
                             }
                             else if (messageFromServer.StartsWith("S"))
@@ -107,8 +107,8 @@ namespace XNAGame.ServerConn
                         }
                         catch (Exception ee)
                         {
-                            Console.WriteLine(ee.Message);
-                            Console.WriteLine(ee.StackTrace);
+                          //  Console.WriteLine(ee.Message);
+                            //Console.WriteLine(ee.StackTrace);
                         }
 
 

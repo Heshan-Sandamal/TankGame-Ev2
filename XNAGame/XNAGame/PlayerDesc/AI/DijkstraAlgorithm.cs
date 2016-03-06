@@ -19,6 +19,9 @@ namespace XNAGame.PlayerDesc.AI
             // create a copy of the array so that we can operate on this array
             this.nodes = new List<GameObject>(graph.getVertexes());
             this.edges = new List<Edge>(graph.getEdges());
+
+            Console.WriteLine(nodes.Count+"Nodes Count");
+
         }
         public void execute(GameObject source)
         {
@@ -107,6 +110,8 @@ namespace XNAGame.PlayerDesc.AI
             LinkedList<GameObject> path = new LinkedList<GameObject>();
             GameObject step = target;
             // check if a path exists
+            Console.WriteLine("Led of predesc"+predecessors.Count);
+
             if (predecessors[step] == null)
             {
                 return null;

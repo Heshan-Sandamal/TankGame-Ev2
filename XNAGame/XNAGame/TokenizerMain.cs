@@ -32,7 +32,7 @@ namespace XNAGame
                 if (splitted[1].Substring(0).StartsWith("P", true, null))
                 {
                     self.Number = int.Parse(splitted[1].Substring(1));
-                    TokenizerMain.selfNumber = self.Number;
+                    
                 }
                 // initial player Location x and y
                 String[] Locations = splitted[2].Split(commaArray);
@@ -62,6 +62,7 @@ namespace XNAGame
                 if (splitted[1].Substring(0).StartsWith("P", true, null))
                 {
                     PLAYER_NO = int.Parse(splitted[1].Substring(1));
+                    TokenizerMain.selfNumber = PLAYER_NO;
                     MapTerrain.Add("PlayerNumber",PLAYER_NO );
                 }
                 String[] bricksLocations = splitted[2].Split(semicolonArray);
@@ -230,7 +231,7 @@ namespace XNAGame
                 playerarray = new List<Player>();
 
 
-                for (int i = 1; i < 6; i++)
+                for (int i = 1; i < splitted.Length; i++)
                 {
                    
                     Player player = new Player();
@@ -248,7 +249,7 @@ namespace XNAGame
                     playerList.Add(player);
                     playerarray.Add(player);
 
-                    if(i==selfNumber){
+                    if((i-1)==selfNumber){
                         player.playerType = 1;
                     }
                     // For demo only
@@ -284,26 +285,32 @@ namespace XNAGame
         {
             ArrayList Map;
             Coordinate coord;
-            if (MapDetails.EndsWith("#"))
+            try
             {
-                MapDetails = MapDetails.Remove(MapDetails.Length - 1);
-                String[] splitted = MapDetails.Split(colonArray);
-                Map = new ArrayList();
-                String[] temp = splitted[2].Split(semicolonArray);
-                for (int i = 0; i < temp.Length; i++)
+                if (MapDetails.EndsWith("#"))
                 {
-                    coord = new Coordinate();
-                    String[] location = temp[i].Split(commaArray);
-                    coord.XCoordinate = int.Parse(location[0]);
-                    coord.YCoordinate = int.Parse(location[1]);
-                    coord.Damage = int.Parse(location[2]);
-                    Console.WriteLine("Updating Location :" + coord.XCoordinate + "," + coord.YCoordinate + "Damage is :" + coord.Damage);
-                    Map.Add(coord);
+                    MapDetails = MapDetails.Remove(MapDetails.Length - 1);
+                    String[] splitted = MapDetails.Split(colonArray);
+                    Map = new ArrayList();
+                    String[] temp = splitted[2].Split(semicolonArray);
+                    for (int i = 0; i < temp.Length; i++)
+                    {
+                        coord = new Coordinate();
+                        String[] location = temp[i].Split(commaArray);
+                        coord.XCoordinate = int.Parse(location[0]);
+                        coord.YCoordinate = int.Parse(location[1]);
+                        coord.Damage = int.Parse(location[2]);
+                        Console.WriteLine("Updating Location :" + coord.XCoordinate + "," + coord.YCoordinate + "Damage is :" + coord.Damage);
+                        Map.Add(coord);
+                    }
+                    return Map;
                 }
-                return Map;
-            }
-            else
-            {
+                else
+                {
+                    return null;
+                }
+            }catch(IndexOutOfRangeException e){
+                Console.Write(e.StackTrace);
                 return null;
             }
 

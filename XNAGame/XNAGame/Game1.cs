@@ -130,7 +130,7 @@ namespace XNAGame
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
-            Console.WriteLine("updating");
+            //Console.WriteLine("updating");
             // TODO: Add your update logic here
             pixel = new Texture2D(GraphicsDevice, 1, 1, false, SurfaceFormat.Color);
             pixel.SetData(new[] { Color.White });
@@ -152,8 +152,6 @@ namespace XNAGame
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            Thread thread = new Thread(new ThreadStart(() => updatePlayerLocation()));
-            thread.Start();
 
             // TODO: Add your drawing code here
             spriteBatch.Begin();
@@ -168,6 +166,8 @@ namespace XNAGame
             base.Draw(gameTime);
 
 
+            Thread thread = new Thread(new ThreadStart(() => updatePlayerLocation()));
+            thread.Start();
 
             
         }
@@ -177,9 +177,20 @@ namespace XNAGame
             if (lastPress + 1200 < CurrentTimeMillis())
             {
                 //msgSender.left();
-                //gameAI.move();
+                //gameAI.move()//////////;
 
-                ClientConnectionInit.sendData(Constant.RIGHT);
+                //ClientConnectionInit.sendData(Constant.RIGHT);
+                //callDigis();
+               
+                try {
+                    Console.WriteLine(Graph.vertexes.Count + "this is countttttttttttttttttttttttttttttttt");
+                    callDigis();
+                    
+                }catch(Exception e){
+                    Console.WriteLine(e.Message);
+                    //throw e;
+                }
+                
                 lastPress = CurrentTimeMillis();
             }
         }
@@ -274,7 +285,7 @@ namespace XNAGame
                      spriteBatch.Draw(carriageTexture, player.Position, Color.White);
                  }
              }*/
-            Console.WriteLine("this is drawing");
+            //Console.WriteLine("this is drawing");
 
             map = torkenizerMain.getTerrainInitializationArray();
             Graph.vertexes = new List<GameObject>();
@@ -423,25 +434,28 @@ namespace XNAGame
             }
 
             
-            /*
-            XNAGame.PlayerDesc.AI.DijkstraAlgorithm dij = new PlayerDesc.AI.DijkstraAlgorithm(new Graph(null,null));
+            
+          
+            
+            
+        }
+        private void callDigis() {
+            XNAGame.PlayerDesc.AI.DijkstraAlgorithm dij = new PlayerDesc.AI.DijkstraAlgorithm(new Graph(null, null));
 
             GameObject g = new GameObject();
-            g.LocationX=0;
-            g.LocationY=0;
+            g.LocationX = 0;
+            g.LocationY = 0;
             g.id = g.LocationX + ":" + g.LocationY;
 
             GameObject des = new GameObject();
-            des.LocationX=4;
-            des.LocationY=4;
+            des.LocationX = 4;
+            des.LocationY = 4;
             des.id = des.LocationX + ":" + des.LocationY;
-            
+
             dij.execute(g);
 
-            LinkedList<GameObject> path=dij.getPath(des);
-            Console.WriteLine(path.ElementAt(0));
-            
-            */
+            LinkedList<GameObject> path = dij.getPath(des);
+            Console.WriteLine("ddddddddddddddddddddddd"+path.ElementAt(0));
         }
     }
 }
