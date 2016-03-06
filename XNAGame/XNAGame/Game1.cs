@@ -47,6 +47,7 @@ namespace XNAGame
         private Texture2D carriageTexture;
         private GameObject[,] map = null;
         private static readonly DateTime Jan1st1970 = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+        static String[,] mapPath;
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -183,8 +184,10 @@ namespace XNAGame
                 //callDigis();
                
                 try {
-                    Console.WriteLine(Graph.vertexes.Count + "this is countttttttttttttttttttttttttttttttt");
-                    callDigis();
+                    //Console.WriteLine(Graph.vertexes.Count + "this is countttttttttttttttttttttttttttttttt");
+                    //callDigis();
+                    
+
                     
                 }catch(Exception e){
                     Console.WriteLine(e.Message);
@@ -318,21 +321,29 @@ namespace XNAGame
                             str = "lifepack";
                             Graph.vertexes.Add(map[i, j]);
                             addEdges(i, j,map[i,j]);
+
+                            mapPath[i, j] = "N";
+
                         }
                         else if (player.type == Enums.Type.BRICKS)
                         {
                             addEdges(i, j, map[i, j]);
                             Graph.vertexes.Add(map[i, j]);
                             str = "bricks";
+                            mapPath[i, j] = "B";
+
                         }
                         else if (player.type == Enums.Type.STONE)
                         {
                             str = "Stones";
+                            mapPath[i, j] = "S";
                         }
                         else if (player.type == Enums.Type.PLAYER)
                         {
                             addEdges(i, j, map[i, j]);
                             Graph.vertexes.Add(map[i, j]);
+
+                            mapPath[i, j] = "N";
 
                             player.Direction = ((Player)map[i, j]).Direction;
                             player.user = ((Player)map[i, j]).playerType;
@@ -383,11 +394,14 @@ namespace XNAGame
                             str = "coins";
                             Graph.vertexes.Add(map[i, j]);
                             addEdges(i, j, map[i, j]);
+
+                            mapPath[i, j] = "N";
                         }
                         
                         else if (player.type == Enums.Type.WATER)
                         {
                             str = "Water";
+                            mapPath[i, j] = "W";
                         }
                         /* else if (player.type == Enums.Type.)
                          {
@@ -406,6 +420,8 @@ namespace XNAGame
                         gameOb.LocationY = j;
                         gameOb.id = i + ":" + j;
                         Graph.vertexes.Add(gameOb);
+
+                        mapPath[i, j] = "N";
 
                         PlayerData player = new PlayerData();
                         //String str = null;
