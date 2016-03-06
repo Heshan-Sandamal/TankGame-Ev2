@@ -21,7 +21,7 @@ namespace XNAGame
         public static int selfNumber;
         public Player JoinReply(String Reply)
         {
-            Player self;
+            Player self;    
             if (Reply.EndsWith("#"))
             {
                 self = new Player();

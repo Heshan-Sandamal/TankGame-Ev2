@@ -109,5 +109,65 @@ namespace XNAGame.PlayerDesc
             
             return false;
         }
+
+
+        public void findPath(GameObject self, int x, int y,String[,] map)
+        {
+            Player player=(Player) self;
+            int playerX = player.LocationX;
+            int playerY = player.LocationY;
+
+            if (map[playerX, playerY - 1] == "N")
+            {
+                if (!player.Direction.Equals(Enums.Directions.NORTH)) {
+                    XNAGame.Client.ClientConnectionInit.sendData("NORTH#");
+                }
+                XNAGame.Client.ClientConnectionInit.sendData("NORTH#");
+            }
+            else if (map[playerX-1,playerY]=="N")
+            {
+                if (!player.Direction.Equals(Enums.Directions.WEST))
+                {
+                    XNAGame.Client.ClientConnectionInit.sendData("WEST#");
+                }
+                XNAGame.Client.ClientConnectionInit.sendData("WEST#");
+            }
+
+            else if (map[playerX, playerY - 1] == "B")
+            {
+                if (!player.Direction.Equals(Enums.Directions.NORTH))
+                {
+                    XNAGame.Client.ClientConnectionInit.sendData("NORTH#");
+                }
+
+                XNAGame.Client.ClientConnectionInit.sendData("SHOOT#");
+                XNAGame.Client.ClientConnectionInit.sendData("SHOOT#");
+                XNAGame.Client.ClientConnectionInit.sendData("SHOOT#");
+                XNAGame.Client.ClientConnectionInit.sendData("SHOOT#");
+                XNAGame.Client.ClientConnectionInit.sendData("NORTH#");
+            }
+            else if (map[playerX - 1, playerY] == "B")
+            {
+                if (!player.Direction.Equals(Enums.Directions.WEST))
+                {
+                    XNAGame.Client.ClientConnectionInit.sendData("WEST#");
+                }
+
+                XNAGame.Client.ClientConnectionInit.sendData("SHOOT#");
+                XNAGame.Client.ClientConnectionInit.sendData("SHOOT#");
+                XNAGame.Client.ClientConnectionInit.sendData("SHOOT#");
+                XNAGame.Client.ClientConnectionInit.sendData("SHOOT#");
+                XNAGame.Client.ClientConnectionInit.sendData("WEST#");
+            }
+            else if (!(map[playerX + 1, playerY] == "W" || map[playerX + 1, playerY] == "S"))
+            {
+                if (!player.Direction.Equals(Enums.Directions.EAST))
+                {
+                    XNAGame.Client.ClientConnectionInit.sendData("EAST#");
+                }
+                XNAGame.Client.ClientConnectionInit.sendData("EAST#");
+
+            }
+        }
     }
 }
