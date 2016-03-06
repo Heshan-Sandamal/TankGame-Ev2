@@ -95,6 +95,7 @@ namespace XNAGame
                     brick.LocationY = int.Parse(temp[1]);
                     brick.health = 0;
                     brick.Type = Enums.Type.BRICKS;
+                    brick.id = brick.LocationX + ":" + brick.LocationY;
                     map[int.Parse(temp[0]), int.Parse(temp[1])] =brick;
                     //Graph.vertexes.Add(brick);
                 }
@@ -155,6 +156,7 @@ namespace XNAGame
                 //Value of the coin pile 
                 Coins.Value = int.Parse(CoinDrop[3]);
                 Coins.Type = Enums.Type.COIN;
+                Coins.id = Coins.LocationX + ":" + Coins.LocationY;
                 map[Coins.LocationX, Coins.LocationY] = Coins;
                 Coins.updateLifeTime(map);
                 Console.WriteLine("--------- Coins received at X: " + Coins.LocationX + " Y: " + Coins.LocationY + " --------------");
@@ -180,6 +182,7 @@ namespace XNAGame
                 lifepack.LeftTime = int.Parse(LifePackDrop[2]);
                 Console.WriteLine("--------- Life packs received at X: " + lifepack.LocationX + " Y: " + lifepack.LocationY + " --------------");
                 lifepack.Type = Enums.Type.LIFE;
+                lifepack.id = lifepack.LocationX + ":" + lifepack.LocationY;
                 map[lifepack.LocationX, lifepack.LocationY] = lifepack;
                 lifepack.updateLifeTime(map);
                 return lifepack;
@@ -236,6 +239,7 @@ namespace XNAGame
                     player.health = int.Parse(data[4]);
                     player.Coins = int.Parse(data[5]);
                     player.points = int.Parse(data[6]);
+                    player.id = player.LocationX + ":" + player.LocationY;
                     player.Type = Enums.Type.PLAYER;
                     playerList.Add(player);
                     playerarray[i - 1] = player;

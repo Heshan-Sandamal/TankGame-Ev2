@@ -40,12 +40,13 @@ namespace XNAGame
         int screenWidth;
         int screenHeight;
         int numberOfPlayers;
+        long lastPress;
         PlayerData[] playerArray;
         Texture2D pixel;
         Texture2D backgroundTexture;
         private Texture2D carriageTexture;
         private GameObject[,] map = null;
-
+        private static readonly DateTime Jan1st1970 = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -116,6 +117,13 @@ namespace XNAGame
         /// checking for collisions, gathering input, and playing audio.
         /// </summary>
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
+        /// 
+        private static long CurrentTimeMillis()
+        {
+            return (long)(DateTime.UtcNow - Jan1st1970).TotalMilliseconds;
+        }
+
+       
         protected override void Update(GameTime gameTime)
         {
             // Allows the game to exit
@@ -128,6 +136,12 @@ namespace XNAGame
             pixel.SetData(new[] { Color.White });
 
             base.Update(gameTime);
+
+
+            //
+            
+
+            
         }
 
         /// <summary>
@@ -142,7 +156,10 @@ namespace XNAGame
             spriteBatch.Begin();
             DrawScenery();
             DrawPlayers();
-            
+
+            Thread thread = new Thread(new ThreadStart(() => updatePlayerLocation()));
+            thread.Start();
+
 
             Rectangle titleSafeRectangle = GraphicsDevice.Viewport.TitleSafeArea;
 
@@ -151,6 +168,22 @@ namespace XNAGame
             spriteBatch.End();
 
             base.Draw(gameTime);
+
+
+
+            
+        }
+
+
+        private void updatePlayerLocation() {
+            if (lastPress + 500 < CurrentTimeMillis())
+            {
+                //msgSender.left();
+                //gameAI.move();
+
+                ClientConnectionInit.sendData(Constant.RIGHT);
+                lastPress = CurrentTimeMillis();
+            }
         }
 
         private void DrawBorder(Rectangle titleSafeRectangle, int thickness, Color color)
@@ -180,42 +213,55 @@ namespace XNAGame
 
 
 
-       private void addEdges(int i,int j) {
+       private void addEdges(int i,int j,GameObject gameOb) {
+           GameObject g;
            try{
                if (map[i - 1, j] == null)
                {
-                   Graph.edges.Add(new Edge(i, map[i, j], map[i - 1, j], 1));
+                   g=new GameObject();
+                   g.LocationX = i - 1;
+                   g.LocationY = j;
+                   Graph.edges.Add(new Edge(i+100*j, gameOb, g, 1));
                }
                else if (map[i - 1, j].Type == Enums.Type.BRICKS)
                {
-                   Graph.edges.Add(new Edge(i, map[i, j], map[i - 1, j], 5));
+                   Graph.edges.Add(new Edge(i, gameOb, map[i - 1, j], 5));
                }
 
                if (map[i + 1, j] == null)
                {
-                   Graph.edges.Add(new Edge(i, map[i, j], map[i + 1, j], 1));
+                   g = new GameObject();
+                   g.LocationX = i + 1;
+                   g.LocationY = j;
+                   Graph.edges.Add(new Edge(i, gameOb, g, 1));
                }
                else if (map[i + 1, j].Type == Enums.Type.BRICKS)
                {
-                   Graph.edges.Add(new Edge(i, map[i, j], map[i + 1, j], 5));
+                   Graph.edges.Add(new Edge(i, gameOb, map[i + 1, j], 5));
                }
 
                if (map[i, j - 1] == null)
                {
-                   Graph.edges.Add(new Edge(i, map[i, j], map[i, j - 1], 1));
+                   g = new GameObject();
+                   g.LocationX = i;
+                   g.LocationY = j-1;
+                   Graph.edges.Add(new Edge(i, gameOb, g, 1));
                }
                else if (map[i, j-1].Type == Enums.Type.BRICKS)
                {
-                   Graph.edges.Add(new Edge(i, map[i, j], map[i, j - 1], 5));
+                   Graph.edges.Add(new Edge(i, gameOb, map[i, j - 1], 5));
                }
 
                if (map[i, j + 1] == null)
                {
-                   Graph.edges.Add(new Edge(i, map[i, j], map[i, j + 1], 1));
+                   g = new GameObject();
+                   g.LocationX = i;
+                   g.LocationY = j + 1;
+                   Graph.edges.Add(new Edge(i, gameOb, g, 1));
                }
                else if (map[i, j+1].Type == Enums.Type.BRICKS)
                {
-                   Graph.edges.Add(new Edge(i, map[i, j], map[i, j + 1], 5));
+                   Graph.edges.Add(new Edge(i, gameOb, map[i, j + 1], 5));
                }
            }catch(IndexOutOfRangeException e){}
        }
@@ -262,11 +308,11 @@ namespace XNAGame
                         {
                             str = "lifepack";
                             Graph.vertexes.Add(map[i, j]);
-                            addEdges(i, j);
+                            addEdges(i, j,map[i,j]);
                         }
                         else if (player.type == Enums.Type.BRICKS)
                         {
-                            addEdges(i, j);
+                            addEdges(i, j, map[i, j]);
                             Graph.vertexes.Add(map[i, j]);
                             str = "bricks";
                         }
@@ -276,7 +322,7 @@ namespace XNAGame
                         }
                         else if (player.type == Enums.Type.PLAYER)
                         {
-                            addEdges(i, j);
+                            addEdges(i, j, map[i, j]);
                             Graph.vertexes.Add(map[i, j]);
 
                             player.Direction = ((Player)map[i, j]).Direction;
@@ -325,7 +371,7 @@ namespace XNAGame
                         {
                             str = "coins";
                             Graph.vertexes.Add(map[i, j]);
-                            addEdges(i, j);
+                            addEdges(i, j, map[i, j]);
                         }
                         
                         else if (player.type == Enums.Type.WATER)
@@ -347,6 +393,7 @@ namespace XNAGame
                         GameObject gameOb = new GameObject();
                         gameOb.LocationX = i;
                         gameOb.LocationY = j;
+                        gameOb.id = i + ":" + j;
                         Graph.vertexes.Add(gameOb);
 
                         PlayerData player = new PlayerData();
@@ -359,14 +406,15 @@ namespace XNAGame
                             //spriteBatch.Begin();
                             spriteBatch.Draw(carriageTexture, player.Position, Color.White);
                             //spriteBatch.End();
+
                         }
 
                         catch (Exception e) { Console.WriteLine(e); }
                         map = torkenizerMain.getTerrainInitializationArray();
 
-                        addEdges(i,j);
-
-
+                        addEdges(i,j,gameOb);
+                        //ClientConnectionInit.sendData(Constant.RIGHT);
+                        //ClientConnectionInit.sendData(Constant.sh);
 
                     }
                 }
@@ -374,22 +422,26 @@ namespace XNAGame
 
             }
 
+            
+            /*
             XNAGame.PlayerDesc.AI.DijkstraAlgorithm dij = new PlayerDesc.AI.DijkstraAlgorithm(new Graph(null,null));
 
             GameObject g = new GameObject();
             g.LocationX=0;
             g.LocationY=0;
+            g.id = g.LocationX + ":" + g.LocationY;
 
             GameObject des = new GameObject();
-            g.LocationX=9;
-            g.LocationY=9;
-
+            des.LocationX=4;
+            des.LocationY=4;
+            des.id = des.LocationX + ":" + des.LocationY;
+            
             dij.execute(g);
 
             LinkedList<GameObject> path=dij.getPath(des);
             Console.WriteLine(path.ElementAt(0));
             
-            
+            */
         }
     }
 }
